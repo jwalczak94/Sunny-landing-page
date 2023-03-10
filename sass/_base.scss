@@ -1,6 +1,7 @@
 @use "variables" as v;
 
 body {
+  background-color: var(--bgColor);
   font-family: var(--ff-secondary);
   text-align: center;
 }
