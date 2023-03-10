@@ -53,6 +53,7 @@
 
     &__logo {
       color: var(--cyanFooter);
+      height: 33px;
     }
 
     &__links {
@@ -67,10 +68,12 @@
 
     .socials {
       gap: 1.7rem;
+      margin-top: 3rem;
     }
 
     &__link {
       color: var(--cyanFooter);
+      line-height: 1.35;
 
       i {
         font-size: 1.25rem;

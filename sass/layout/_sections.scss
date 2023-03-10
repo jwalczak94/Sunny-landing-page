@@ -18,10 +18,18 @@
     @include c.respond(tab-land) {
       align-items: center;
       justify-content: end;
+
+      .text-1 {
+        padding-left: 3.4375rem;
+      }
+
+      .text-2 {
+        padding-right: 3.4375rem;
+      }
     }
 
     @include c.respond(desktop) {
-      max-width: 1440px;
+      max-width: 90rem;
       margin-inline: auto;
     }
 
@@ -48,12 +56,17 @@
       display: grid;
       gap: 1.5rem;
 
-      max-width: 27.75rem;
+      max-width: 31.25rem;
       margin-inline: auto;
+
+      p {
+        line-height: 1.67;
+      }
 
       @include c.respond(tab-land) {
         padding-inline: 0;
         text-align: left;
+        gap: 2rem;
       }
 
       &__link {
@@ -69,6 +82,7 @@
 
         @include c.respond(tab-land) {
           margin-inline: 0;
+          margin-top: 0.5rem;
         }
 
         @media (hover: hover) {
