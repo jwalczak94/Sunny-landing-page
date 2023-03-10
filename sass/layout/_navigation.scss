@@ -1,0 +1,175 @@
+@use "../mixins" as c;
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-inline: auto;
+  margin-bottom: 5.5rem;
+  max-width: 84.5rem;
+
+  @include c.respond(tab-port) {
+    margin-bottom: 6.375rem;
+  }
+
+  &__logo {
+    @include c.respond(tab-land) {
+      height: 33px;
+    }
+  }
+
+  &__hamburger {
+    cursor: pointer;
+
+    position: fixed;
+    right: 1.5rem;
+    z-index: 9999;
+
+    background-color: rgba(73, 188, 241, 0.45);
+    padding: 24px 21px;
+
+    @include c.respond(tab-port) {
+      display: none;
+    }
+  }
+
+  &__links {
+    position: fixed;
+    top: 6.625rem;
+    right: -400px;
+    z-index: 9999;
+
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    background-color: (var(--white));
+    padding: 2.5rem 5.875rem;
+
+    @media (max-height: 400px) {
+      gap: 1.25rem;
+      padding: 2rem 5.875rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: -1.8rem;
+      right: 0;
+      border-left: 1.875rem solid transparent;
+      border-bottom: 1.875rem solid var(--white);
+
+      @include c.respond(tab-port) {
+        display: none;
+      }
+    }
+
+    @include c.respond(tab-port) {
+      display: flex;
+      flex-direction: row;
+      gap: 2.875rem;
+
+      background-color: transparent;
+      padding: 0;
+      position: static;
+    }
+  }
+
+  &__link {
+    color: var(--gray300);
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    @include c.respond(tab-port) {
+      color: var(--white);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--yellow);
+      transition: width 0.3s;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--yellow);
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+
+    background-color: var(--yellow);
+    border-radius: 99px;
+    color: var(--textDark);
+    font-weight: 700;
+    padding: 1rem 2rem;
+
+    @include c.respond(tab-port) {
+      background-color: var(--white);
+      transition: 0.3s;
+
+      @media (hover: hover) {
+        &:hover {
+          color: var(--white);
+          background-color: rgba(255, 255, 255, 0.25);
+        }
+      }
+    }
+  }
+}
+
+// FOR MOBILE HAMBURGER
+.active {
+  display: flex;
+  animation: slideIn 0.5s 0.1s ease forwards;
+
+  @include c.respond(tab-port) {
+    display: none;
+  }
+}
+
+.overlay {
+  display: none;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  width: 100dvw;
+  width: 100vw;
+  z-index: 999;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    right: -400px;
+  }
+  60% {
+    opacity: 1;
+    right: 2rem;
+  }
+  80% {
+    right: 1rem;
+  }
+  100% {
+    right: 1.5rem;
+  }
+}
