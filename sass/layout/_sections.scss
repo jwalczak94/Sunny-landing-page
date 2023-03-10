@@ -31,6 +31,7 @@
         height: 100%;
 
         max-height: 37.5rem;
+        -o-object-fit: cover;
         object-fit: cover;
       }
 
@@ -59,6 +60,8 @@
         color: var(--textDark);
         font-weight: 900;
         padding-inline: 0.5rem;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
 
         position: relative;
@@ -87,6 +90,8 @@
 
           opacity: 0.25;
           border-radius: 28px;
+          -webkit-transition: 0.3s;
+          -o-transition: 0.3s;
           transition: 0.3s;
         }
       }
@@ -115,6 +120,7 @@
         img {
           min-height: 600px;
           width: 100%;
+          -o-object-fit: cover;
           object-fit: cover;
         }
       }
@@ -185,9 +191,18 @@
     }
 
     &__box {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
       gap: 2rem;
       max-width: 25rem;
@@ -195,6 +210,9 @@
 
       @include c.respond(tab-port) {
         gap: 3.625rem;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
         justify-content: space-between;
       }
 
